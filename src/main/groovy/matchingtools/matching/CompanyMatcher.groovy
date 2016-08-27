@@ -4,11 +4,15 @@ import domain.Address
 import domain.CompanyName
 import domain.Match
 import domain.Record
+import org.slf4j.Logger
+import org.slf4j.LoggerFactory
 
 /**
  * Created by Christian Sperandio on 27/08/2016.
  */
 class CompanyMatcher implements Matcher<Record> {
+
+    private static Logger logger = LoggerFactory.getLogger(CompanyMatcher.class)
 
     private SiretMatcher siretMatcher = new SiretMatcher()
     private CityNameMatcher cityNameMatcher = new CityNameMatcher()
@@ -17,11 +21,20 @@ class CompanyMatcher implements Matcher<Record> {
 
     @Override
     Match match(Record item1, Record item2) {
+
+        logger.debug("Match record [$item1] vs [$item2]")
+
         if (siretMatcher.match(item1.siret, item2.siret) == Match.UNMATCH) { return Match.UNMATCH }
+
+        logger.debug("Siret test passed")
 
         if (cityNameMatcher.match(item1.city, item2.city) == Match.UNMATCH) { return Match.UNMATCH }
 
+        logger.debug("City test passed")
+
         if (compareAddress(item1.addresses, item2.addresses) != Match.MATCH) { return Match.UNMATCH }
+
+        logger.debug("Address test passed")
 
         compareNames(item1.names, item2.names)
     }
