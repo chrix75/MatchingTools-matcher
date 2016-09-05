@@ -40,6 +40,8 @@ class CompanyMatcher implements Matcher<Record> {
     }
 
     Match compareNames(List<CompanyName> companyNames1, List<CompanyName> companyNames2) {
+        if (!companyNames1 || !companyNames2) { return Match.EMPTY }
+
         def combinations = [companyNames1, companyNames2].combinations()
 
         def comparisons = combinations.collect {
