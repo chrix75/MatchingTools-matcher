@@ -14,7 +14,8 @@ class CompanyMatcher implements Matcher<Record> {
 
     private static Logger logger = LoggerFactory.getLogger(CompanyMatcher.class)
 
-    private SiretMatcher siretMatcher = new SiretMatcher()
+    private Siret
+    Matcher siretMatcher = new SiretMatcher()
     private CityNameMatcher cityNameMatcher = new CityNameMatcher()
     private AddressMatcher addressMatcher= new AddressMatcher()
     private CompanyNameMatcher companyNameMatcher= new CompanyNameMatcher()

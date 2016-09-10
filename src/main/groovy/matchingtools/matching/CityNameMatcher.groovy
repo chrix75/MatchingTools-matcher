@@ -16,9 +16,8 @@ class CityNameMatcher implements Matcher<String> {
 
     @Override
     Match match(String item1, String item2) {
-
-        def words1 = item1.tokenize().findAll { !it.isNumber()}
-        def words2 = item2.tokenize().findAll { !it.isNumber()}
+        def words1 = item1.replaceAll(/\b\d+\b/, '').tokenize()
+        def words2 = item2.replaceAll(/\b\d+\b/, '').tokenize()
 
         expressionsMatcher.match(words1, words2)
     }
