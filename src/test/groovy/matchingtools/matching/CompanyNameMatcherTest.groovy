@@ -2,8 +2,6 @@ package matchingtools.matching
 
 import domain.CompanyName
 import domain.Match
-import matchingtools.matching.CompanyNameMatcher
-
 /**
  * Created by Christian Sperandio on 26/08/2016.
  */
@@ -85,11 +83,11 @@ class CompanyNameMatcherTest extends GroovyTestCase {
         assertEquals(Match.MATCH, matcher.match(cie1, cie2))
     }
 
-    void testMatch_11() {
-        def cie1 = new CompanyName("BOULANGERIE DE REUILLY")
-        def cie2 = new CompanyName("BOUCHERIE DE REUILLY")
+    void testMatch_12() {
+        def cie1 = new CompanyName("MASSEBEUF J")
+        def cie2 = new CompanyName("MONSIEUR MASSEBEUF J")
 
-        assertEquals(Match.UNMATCH, matcher.match(cie1, cie2))
+        assertEquals(Match.MATCH, matcher.match(cie1, cie2))
     }
 
 }

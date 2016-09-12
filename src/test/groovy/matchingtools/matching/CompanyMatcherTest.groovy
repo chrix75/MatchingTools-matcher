@@ -119,5 +119,14 @@ class CompanyMatcherTest extends GroovyTestCase {
         assertEquals(Match.UNMATCH, matcher.match(record1, record2))
     }
 
+    void testMatch_11() {
+        def address = new Address("7", "GR", "", "", "")
+
+        def record1 = new Record(1, [new CompanyName("MASSEBEUF J")], [address], "", boulogne)
+        def record2 = new Record(2, [new CompanyName("MONSIEUR MASSEBEUF J")], [address], "", boulogne)
+
+        assertEquals(Match.MATCH, matcher.match(record1, record2))
+    }
+
 
 }

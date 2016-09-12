@@ -2,8 +2,6 @@ package matchingtools.matching
 
 import domain.Address
 import domain.Match
-import matchingtools.matching.AddressMatcher
-
 /**
  * Created by Christian Sperandio on 26/08/2016.
  */
@@ -158,9 +156,9 @@ class AddressMatcherTest extends GroovyTestCase {
         assertEquals(Match.MATCH, result)
     }
 
-    void testCompareAddress_16() {
-        def addr1 = new Address("14", "AV", "DE LATTRE DE TASSIGNY", "", "")
-        def addr2 = new Address("14", "AV", "DELATTRE DE TASSIGNY", "", "")
+    void testCompareAddress_17() {
+        def addr1 = new Address("7", "GR", "", "", "")
+        def addr2 = new Address("7", "GR", "", "", "")
 
         def result = matcher.compareAddress(addr1, addr2)
         assertEquals(Match.MATCH, result)

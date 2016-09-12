@@ -2,9 +2,7 @@ package matchingtools.matching
 
 import domain.Address
 import domain.Match
-import matchingtools.matching.Matcher
 import services.ExpressionsMatcher
-
 /**
  * Created by Christian Sperandio on 26/08/2016.
  */
@@ -40,6 +38,9 @@ class AddressMatcher implements Matcher<Address> {
         if (postBoxMatch == Match.UNMATCH) { return Match.UNMATCH }
         if (postBoxMatch == Match.MATCH) { return Match.MATCH }
 
+        if (!item1.name && !item2.name && item1.number > 0) {
+            return (item1.way == item2.way) && (item1.number == item2.number) ? Match.MATCH : Match.UNMATCH
+        }
 
         if (compareStreetNumber(item1.number, item2.number) == Match.UNMATCH) {
             return Match.UNMATCH

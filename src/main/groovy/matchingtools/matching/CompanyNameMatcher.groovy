@@ -2,16 +2,14 @@ package matchingtools.matching
 
 import domain.CompanyName
 import domain.Match
-import matchingtools.matching.Matcher
 import services.ExpressionsMatcher
-
 /**
  * Created by Christian Sperandio on 26/08/2016.
  */
 class CompanyNameMatcher implements Matcher<CompanyName> {
     private List articles = ["LE", "LA", "LES", "L", "DE", "DU", "DES", "D"]
     private List extensions = [ "SA", "SAS", "SARL", "EURL", "GMBH" ]
-    private List useless = [ "ST", "SAINT", "SAINTE", "CHEZ", "ET" ]
+    private List useless = [ "ST", "SAINT", "SAINTE", "CHEZ", "ET", "MONSIEUR", "MADAME", "MME", "MADEMOISELLE", "MLE" ]
 
     private ExpressionsMatcher expressionsMatcher
 
