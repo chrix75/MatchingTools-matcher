@@ -8,8 +8,9 @@ import services.ExpressionsMatcher
  */
 class CompanyNameMatcher implements Matcher<CompanyName> {
     private List articles = ["LE", "LA", "LES", "L", "DE", "DU", "DES", "D"]
-    private List extensions = [ "SA", "SAS", "SARL", "EURL", "GMBH" ]
-    private List useless = [ "ST", "SAINT", "SAINTE", "CHEZ", "ET", "MONSIEUR", "MADAME", "MME", "MADEMOISELLE",
+    private List extensions = [ "SA", "SAS", "SARL", "EURL", "GMBH", "GROUPE", "GROUP", "GRP" ]
+    private List useless = [ "ST", "SAINT", "SAINTE", "CHEZ", "ET",
+                             "MONSIEUR", "MADAME", "MME", "MADEMOISELLE",
                              "MLE", "MLLE", "MELLE", "MR" ]
 
     private ExpressionsMatcher expressionsMatcher
