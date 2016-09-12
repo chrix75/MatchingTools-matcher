@@ -90,4 +90,11 @@ class CompanyNameMatcherTest extends GroovyTestCase {
         assertEquals(Match.MATCH, matcher.match(cie1, cie2))
     }
 
+    void testMatch_13() {
+        def cie1 = new CompanyName("MULTISERV SUD SA")
+        def cie2 = new CompanyName("MULTISERV SUD SA SCA6")
+
+        assertEquals(Match.MATCH, matcher.match(cie1, cie2))
+    }
+
 }
