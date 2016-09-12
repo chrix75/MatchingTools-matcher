@@ -106,7 +106,11 @@ class AddressMatcher implements Matcher<Address> {
 
     boolean isCompatible(Address item1, Address item2) {
         def ways = [item1, item2]*.way
-        allZone(ways) || allStreet(ways)
+        allEmpty(ways) || allZone(ways) || allStreet(ways)
+    }
+
+    boolean allEmpty(ArrayList<String> ways) {
+            ways.every { it.empty }
     }
 
     boolean allStreet(List<String> ways) {
