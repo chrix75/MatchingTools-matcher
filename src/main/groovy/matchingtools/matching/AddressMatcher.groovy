@@ -110,7 +110,7 @@ class AddressMatcher implements Matcher<Address> {
     }
 
     boolean allEmpty(ArrayList<String> ways) {
-            ways.every { it.empty }
+            ways.every { !it }
     }
 
     boolean allStreet(List<String> ways) {
